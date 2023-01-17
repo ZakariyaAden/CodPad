@@ -15,13 +15,13 @@ public class NumberGame{
         if (numGuess < 1 || numGuess > 10) {
             System.out.println("Invalid Number");
         }
-        if (numGuess >= 1 || numGuess <= 10) {
+        if (numGuess >= 1 && numGuess <= 10) {
             if ( realNum != numGuess) {
-                System.out.println("HAHA");
+                System.out.println("\nHAHA");
                 System.out.println("Your Number was " + numGuess + " and the real Number was " + realNum + ".");
             }
             if (realNum == numGuess){
-                System.out.println("Your Guess was right: " + numGuess);
+                System.out.println("\nYour Guess was right: " + numGuess);
             }
         }
     }
