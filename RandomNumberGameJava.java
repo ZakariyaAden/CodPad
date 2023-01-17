@@ -1,4 +1,5 @@
-import java. util. Scanner
+import java.util.Scanner;
+import java.util.Random;
 
 public class NumberGame{
     public static void main{
@@ -8,12 +9,16 @@ public class NumberGame{
         System.out.println("Enter a number(1~10):");
         int numGuess = numGuessScanner.nextInt();
 
-        int randNumGen[] = {1,2,3,4,5,6,7,8,9,10};
+        Random rand = new Random();
+        int realNum = random.nextInt(10);
 
-        for (int i : randNumGen) {
-            if ( i != numGuess) {
-                System.
-            }
+
+        if ( realNum != numGuess) {
+            System.out.println("HAHA");
+            System.out.println("Your Number was " + numGuess + " and the real Number was " + realNum + ".");
+        }
+        if (realNum == numGuess){
+            System.out.println("Your Guess was right: " + numGuess);
         }
 
     }
