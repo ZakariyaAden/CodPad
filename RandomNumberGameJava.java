@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class NumberGame{
-    public static void main{
+    public static void main(String[] args){
         System.out.println("Welcome to the Number Game!!!\n");
 
         Scanner numGuessScanner = new Scanner(System.in);
@@ -10,16 +10,19 @@ public class NumberGame{
         int numGuess = numGuessScanner.nextInt();
 
         Random rand = new Random();
-        int realNum = random.nextInt(10);
+        int realNum = rand.nextInt(10);
 
-
-        if ( realNum != numGuess) {
-            System.out.println("HAHA");
-            System.out.println("Your Number was " + numGuess + " and the real Number was " + realNum + ".");
+        if (numGuess < 1 || numGuess > 10) {
+            System.out.println("Invalid Number");
         }
-        if (realNum == numGuess){
-            System.out.println("Your Guess was right: " + numGuess);
+        if (numGuess >= 1 || numGuess <= 10) {
+            if ( realNum != numGuess) {
+                System.out.println("HAHA");
+                System.out.println("Your Number was " + numGuess + " and the real Number was " + realNum + ".");
+            }
+            if (realNum == numGuess){
+                System.out.println("Your Guess was right: " + numGuess);
+            }
         }
-
     }
 }
