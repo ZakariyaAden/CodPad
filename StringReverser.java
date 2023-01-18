@@ -7,13 +7,20 @@ public class revString {
         Scanner strInput = new Scanner(System.in);
         System.out.print("Input String To Reverse:");
         String str = strInput.nextLine();
+        int strLength = str.length();
+        char[] arrConvert = new char[strLength];
 
-        char arrConvert[] = new char[str.length()];
-
-        for (int i = 0; i <= arrConvert.length; i++) {
+        for (int i = 0; i < arrConvert.length; i++) {
             arrConvert[i] = str.charAt(i);
         }
-        
-        System.out.println(arrConvert);
+        String strConverted = "";
+        for (char i : arrConvert) {
+            for (int j = arrConvert.length - 1; j >= 0; j--) {
+                int grunt = j;
+                str.charAt(i) = arrConvert[grunt];
+            }
+        }
+        System.out.println(str);
+        //System.out.println(arrConvert);
     }
 }
