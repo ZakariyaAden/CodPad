@@ -9,18 +9,22 @@ public class revString {
         String str = strInput.nextLine();
         int strLength = str.length();
         char[] arrConvert = new char[strLength];
-
         for (int i = 0; i < arrConvert.length; i++) {
             arrConvert[i] = str.charAt(i);
         }
-        String strConverted = "";
-        for (char i : arrConvert) {
-            for (int j = arrConvert.length - 1; j >= 0; j--) {
-                int grunt = j;
-                str.charAt(i) = arrConvert[grunt];
+        try {
+            functForReverse(arrConvert);
+        }
+        catch (Exception err) {
+            System.out.println(err);
+        }
+    }
+    public static void functForReverse(char[] parArr) {
+        for (int i  = 0; i < parArr.length + 1; i++) {
+            for (int j = parArr.length; j > -1; j--) {
+                char revChar = parArr[j]; 
+                parArr[i] = revChar;
             }
         }
-        System.out.println(str);
-        //System.out.println(arrConvert);
     }
 }
