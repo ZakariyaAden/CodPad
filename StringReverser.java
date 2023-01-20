@@ -19,6 +19,7 @@ public class revString {
             System.out.println(err);
         }
     }
+    
     public static void functForReverse(char[] parArr) {
         for (int i  = 0; i < parArr.length + 1; i++) {
             for (int j = parArr.length; j > -1; j--) {
