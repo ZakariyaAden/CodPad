@@ -6,7 +6,7 @@ public class revString {
         System.out.println("Java String Reverser\n");
         Scanner strInput = new Scanner(System.in);
         System.out.print("Input String To Reverse:");
-        String str = strInput.nextLine();
+        String str = strInput.next();
         int strLength = str.length();
         char[] arrConvert = new char[strLength];
         for (int i = 0; i < arrConvert.length; i++) {
