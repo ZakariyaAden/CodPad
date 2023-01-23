@@ -4,7 +4,7 @@ public class TempConverter {
     public static void main(String[] args) {
         System.out.println("Java Temp Converter");
         Scanner typeOfConv = new Scanner(System.in);
-        System.out.print("What Type of Conversionp?\n[Enter 1 for Fairenheight to Celsius & Enter 2 for Celsius to Farenheight]:");
+        System.out.print("What Type of Conversion?\n[Enter 1 for Fairenheight to Celsius & Enter 2 for Celsius to Farenheight]:");
         String convrBino = typeOfConv.nextLine();
         boolean convrTypeF = false;
         boolean convrTypeC = false;
