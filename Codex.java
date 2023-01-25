@@ -22,43 +22,21 @@ public class EncryptionKey {
     }
 }
 public static String EncryptionManager(EncryptionKey paraClass) {
-    String loopForShiftVarible = "" + paraClass.hash;
     char[] arrForShiftVarible = new char[paraClass.msg.length()];
-    for(int j = 0; j < paraClass.msg.length(); j++)
+    for(int j = 0; j < paraClass.msg.length(); j++) {
         arrForShiftVarible[j] = paraClass.msg.charAt(j);
-    for(int i = 0; i < loopForShiftVarible.length(); i++)
-        if(loopForShiftVarible.charAt(i) == "0") {
+    }
+}
+public static int shift(int paraIndex , char[] paraArr) {
+    /*for(char i : paraArr) {
+        if()
             
         }
-        if(loopForShiftVarible.charAt(i) == "1") {
+    }
+    */
+    //I don't know what I'm doing 
 
-        }
-        if(loopForShiftVarible.charAt(i) == "2") {
-
-        }
-        if(loopForShiftVarible.charAt(i) == "3") {
-
-        }
-        if(loopForShiftVarible.charAt(i) == "4") {
-
-        }
-        if(loopForShiftVarible.charAt(i) == "5") {
-
-        }
-        if(loopForShiftVarible.charAt(i) == "6") {
-
-        }
-        if(loopForShiftVarible.charAt(i) == "7") {
-
-        }
-        if(loopForShiftVarible.charAt(i) == "8") {
-
-        }
-        if(loopForShiftVarible.charAt(i) == "9") {
-
-        }
 }
-// put shift method here
 public static int coinFlip(){
     Random coinFlipRand = new Random();
     boolean endbool = false;
