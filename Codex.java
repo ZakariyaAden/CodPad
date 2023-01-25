@@ -1,41 +1,26 @@
 import java.util.Scanner;
 import java.util.Random;
+public class EncryptionKey {
+    int hash;
+    String msg;
+    char[] msgArr;
+    int[] hashArr;
 
+    EncryptionKey(int hash, String msg, char[] msgArr, int[] hashArr){
+        this.hash = hash;
+        this.msg = msg;
+        this.msgArr = msgArr;
+        this.hashArr = hashArr;
+    }
+}
 public class Codex {
     public static void main(String[] args) {
         print("Java Codex",1);
         Scanner msgScanner = new Scanner(System.in); 
         print("Input Message to be Encrypted:");
         String rawMsg = msgScanner.nextLine();
-        int newHash = coinFlip();
-        EncryptionKey info = new EncryptionKey(rawMsg,newHash);
+        EncryptionKey info = new EncryptionKey(rawMsg,coinFlip(),arrayCharConverter(info),hashArrConvr(info));
     }
-
-}
-public class EncryptionKey {
-    int hash;
-    String msg;
-
-    EncryptionKey(int hash,String msg){
-        this.hash = hash;
-        this.msg = msg;
-    }
-}
-public static String EncryptionManager(EncryptionKey paraClass) {
-    char[] arrForShiftVarible = new char[paraClass.msg.length()];
-    for(int j = 0; j < paraClass.msg.length(); j++) {
-        arrForShiftVarible[j] = paraClass.msg.charAt(j);
-    }
-}
-public static int shift(int paraIndex , char[] paraArr) {
-    /*for(char i : paraArr) {
-        if()
-            
-        }
-    }
-    */
-    //I don't know what I'm doing 
-
 }
 public static int coinFlip(){
     Random coinFlipRand = new Random();
@@ -54,6 +39,84 @@ public static int coinFlip(){
         }
     }
     return coinFlipRaw;
+}
+public static char arrayCharConverter(EncryptionKey paraClass) {
+    char[] arr = new char[paraClass.msg.length()];
+    for(int j = 0; j < paraClass.msg.length(); j++) {
+        arr[j] = paraClass.msg.charAt(j); 
+    }
+    return arr;
+}
+public static int hashArrConvr(EncryptionKey paraClass) {
+    int[] hashArr = new int[4];
+    String hashString = "" + paraClass.hash;
+    int arrIndex = 0; 
+    for(int i = 0; i < 4; i++){
+        hashArr[arrIndex] = hashString.charAt(i); 
+        arrIndex++;
+    }
+    return hashArr;
+}
+public static void shift(EncryptionKey paraClass) {
+    for(char j : paraClass.msgArr){
+        switch(j){
+            case 'A':
+                break;
+            case 'a':
+                break;
+            case 'B':
+                break;
+            case 'b':
+                break;
+            case 'C':
+                break;
+            case 'c':
+                break;
+            case 'D':
+                break;
+            case 'd':
+                break;
+            case 'E':
+                break;
+            case 'e':
+                break;
+            case 'F':
+                break;
+            case 'f':
+                break;
+            case 'G':
+                break;
+            case 'g':
+                break;
+            case 'H':
+                break;
+            case 'h':
+                break;
+            case 'I':
+                break;
+            case 'i':
+                break;
+            case 'J':
+                break;
+            case 'j':
+                break;
+            case 'K':
+                break;
+            case 'k':
+                break;
+            case 'L':
+                break;
+            //finish later
+            case '':
+                break;            
+        }
+    }
+
+    for()
+}
+public static int shiftEquation(int x, int n) {
+    shiftedIndex = (x - n) % 26;
+    return shiftedIndex;
 }
 public static void print(String msg,int indentNum) {
     String indent = "\n";
