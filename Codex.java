@@ -21,11 +21,14 @@ public class EncryptionKey {
         this.msg = msg;
     }
 }
-public static String caeserCipher(EncryptionKey paraClass) {
+public static String EncryptionManager(EncryptionKey paraClass) {
     String loopForShiftVarible = "" + paraClass.hash;
-    for(int i = 0; i < loopForShiftVarible; i++)
+    char[] arrForShiftVarible = new char[paraClass.msg.length()];
+    for(int j = 0; j < paraClass.msg.length(); j++)
+        arrForShiftVarible[j] = paraClass.msg.charAt(j);
+    for(int i = 0; i < loopForShiftVarible.length(); i++)
         if(loopForShiftVarible.charAt(i) == "0") {
-            int shift = 
+            
         }
         if(loopForShiftVarible.charAt(i) == "1") {
 
@@ -55,9 +58,10 @@ public static String caeserCipher(EncryptionKey paraClass) {
 
         }
 }
+// put shift method here
 public static int coinFlip(){
     Random coinFlipRand = new Random();
-    boolean endbool = false
+    boolean endbool = false;
     while(!endbool) {
         int coinFlipRaw = coinFlipRand.nextInt(9999);
         if (coinFlipRaw > 1000) {
