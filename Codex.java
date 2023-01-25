@@ -21,6 +21,40 @@ public class EncryptionKey {
         this.msg = msg;
     }
 }
+public static String caeserCipher(EncryptionKey paraClass) {
+    String loopForShiftVarible = "" + paraClass.hash;
+    for(int i = 0; i < loopForShiftVarible; i++)
+        if(loopForShiftVarible.charAt(i) == "0") {
+            int shift = 
+        }
+        if(loopForShiftVarible.charAt(i) == "1") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "2") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "3") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "4") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "5") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "6") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "7") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "8") {
+
+        }
+        if(loopForShiftVarible.charAt(i) == "9") {
+
+        }
+}
 public static int coinFlip(){
     Random coinFlipRand = new Random();
     boolean endbool = false
