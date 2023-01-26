@@ -57,10 +57,12 @@ public static int hashArrConvr(EncryptionKey paraClass) {
     }
     return hashArr;
 }
-public static void shift(EncryptionKey paraClass) {
-    for(char j : paraClass.msgArr){
-        switch(j){
+public static int shift(EncryptionKey paraClass) {
+    for(int j = 0; j < paraClass.msgArr.length; j++){
+        switch(paraClass.msgArr[j]){
             case 'A':
+                alphaIndex = 1;
+                shiftedItem = shiftEquation(alphaIndex,paraClass.hashArr[0]);
                 break;
             case 'a':
                 break;
@@ -115,11 +117,12 @@ public static void shift(EncryptionKey paraClass) {
     for()
 }
 public static int shiftEquation(int x, int n) {
-    shiftedIndex = (x - n) % 26;
+    int shiftedIndex = (x - n) % 26;
     return shiftedIndex;
 }
 public static void print(String msg,int indentNum) {
     String indent = "\n";
+    String multiIndent = " ";
     switch(indentNum){
         case 0:
             break;
@@ -127,19 +130,19 @@ public static void print(String msg,int indentNum) {
             System.out.println(msg + indent);
             break;
         case 2:
-            String multiIndent = indent + indent;
+            multiIndent = indent + indent;
             System.out.println(msg + multiIndent);
             break;
         case 3:
-            String multiIndent = indent + indent + indent;
+            multiIndent = indent + indent + indent;
             System.out.println(msg + multiIndent);
             break;
         case 4:
-            String multiIndent = indent + indent + indent + indent;
+            multiIndent = indent + indent + indent + indent;
             System.out.println(msg + multiIndent);
             break;
         case 5:
-            String multiIndent = indent + indent + indent + indent + indent;
+            multiIndent = indent + indent + indent + indent + indent;
             System.out.println(msg + multiIndent);
             break;
     }
