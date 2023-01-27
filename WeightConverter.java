@@ -9,41 +9,41 @@ public class WeightConverter {
         boolean convrTypeP = false;
         boolean convrTypeK = false;
         if (convrBino.equals("1")) {
-            convrTypeF = true;
-            convrTypeC = false;
+            convrTypeP = true;
+            convrTypeK = false;
         }
         if (convrBino.equals("2")) {
-            convrTypeF = false;
-            convrTypeC = true;
+            convrTypeP = false;
+            convrTypeK = true;
         }
-        if (convrTypeF) {
-            System.out.println("\nFairenheight to Celsius");
-            Scanner farToCelraw = new Scanner(System.in);
-            System.out.print("Input Temp in Fairenheight:");
-            int farToConvr = farToCelraw.nextInt();
-            int farConvrFinal = farenheightConvr(farToConvr);
-            System.out.println(farToConvr + " Fairenheight is " + farConvrFinal + " Celsius");
+        if (convrTypeP) {
+            System.out.println("\nPounds to Kilograms");
+            Scanner raw = new Scanner(System.in);
+            System.out.print("Input Weght in Pounds:");
+            int poundConvr = raw.nextInt();
+            int poundConvrFinal = poundConvr(poundConvr);
+            System.out.println(poundConvr + " Pounds is " + poundConvrFinal + " Kilograms");
         }
-        if (convrTypeC) {
-            System.out.println("\nCelsius to Fairenheight");
-            Scanner farToCelraw = new Scanner(System.in);
-            System.out.print("Input Temp in Celsius:");
-            int celToConvr = farToCelraw.nextInt();
-            int celConvrFinal = celsiusConvr(celToConvr);
-            System.out.println(celToConvr + " Celsius is " + celConvrFinal + " Fairenheight");
+        if (convrTypeK) {
+            System.out.println("\nKilograms to Pounds");
+            Scanner raw = new Scanner(System.in);
+            System.out.print("Input Temp in Kilograms:");
+            int kiloConvr = raw.nextInt();
+            int kiloConvrFinal = kiloConvr(kiloConvr);
+            System.out.println(kiloConvr + " Kilograms is " + kiloConvrFinal + " Pounds");
         }
-        if (convrTypeF == false && convrTypeC == false) {
+        if (convrTypeP == false && convrTypeK == false) {
             System.out.println("Incorrect Input");
-            
+
         }
-    }
-    public static int farenheightConvr(int far) {
-        int tempConvr = (far - 32) * 5/9;
-        return tempConvr;
-    }
-    public static int celsiusConvr(int cel) {
-        int tempConvr = (cel * 9/5) + 32;
-        return tempConvr;
     }
 
+    public static int poundConvr(int pounds) {
+        int weightConvr = pounds / 2;
+        return weightConvr;
+    }
+    public static int kiloConvr(int kilos) {
+        int weightConvr = kilos * 2;
+        return weightConvr;
+    }
 }
