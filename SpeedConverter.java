@@ -20,7 +20,7 @@ public class SpeedConverter {
             System.out.println("\nMph to Kph");
             Scanner mphToKphraw = new Scanner(System.in);
             System.out.print("Input Speed in Miles Per Hour:");
-            int = mphConvr = mphToKphraw.nextInt();
+            int mphConvr = mphToKphraw.nextInt();
             int mphConvrFinal = MphToKph(mphConvr);
             System.out.println(mphConvr + " MPH is " + mphConvrFinal + " KPH");
         }
