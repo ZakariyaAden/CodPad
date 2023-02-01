@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class calc{
+public class JavaCalc{
 
     public static int add (int num1, int num2){
         return num1 + num2;
@@ -21,29 +21,10 @@ public class calc{
         return num1 / num2;
     }
 
-    //public static int arrSeacher (char arr[],char charKey){
-    //    for (int i; i < arr; i++) {
-    //        if (arr[i] == charKey) {
-    //            int targetLength = arr.length - i;
-    //            return targetLength;
-    //        }
-    //    }
-    //}
-
-    public static void main(String [] args){
+    public static void main(String[] args){
 
         System.out.println("Java Calculator\n");
         Scanner numScanner = new Scanner(System.in);
-        
-        System.out.print("Input Operation[+,-,*,/]:");
-        char operation = numScanner.next().charAt(0);
-
-        System.out.print("Input First #: ");
-        int num1 = numScanner.nextInt();
-        
-        System.out.print("Input Second #: ");
-        int num2 = numScanner.nextInt();
-
 
         char operationls[] = {
             '+',
@@ -51,30 +32,34 @@ public class calc{
             '*',
             '/'
         };
+        int awsr = 0;
+        boolean endbool = false;
+        while(!endbool){
+            System.out.print("Input equation[Ex:1+2]:");
+            String equation = numScanner.nextLine();
+            
+            for(char i : operationls) {
+                if (i == operation) {
+                    if (i == '+') {
+                        awsr = add(num1,num2);
+                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);
+                    } 
+                    if (i == '-') {
+                        awsr = sub(num1,num2);
+                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);                    
+                    }
+                    if (i == '*') {
+                        awsr = mult(num1,num2);
+                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);
 
-        
-
-        for(char i : operationls) {
-
-            if (i == operation) {
-                if (i == '+') {
-                    int awsr = add(num1,num2);
-                    System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);
-                } 
-                if (i == '-') {
-                    int awsr = sub(num1,num2);
-                    System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);                    
-                }
-                if (i == '*') {
-                    int awsr = mult(num1,num2);
-                    System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);
-
-                }
-                if (i == '/') {
-                    int awsr = div(num1,num2);
-                    System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);   
+                    }
+                    if (i == '/') {
+                        awsr = div(num1,num2);
+                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);   
+                    }
                 }
             }
+
         }
     }
 }
