@@ -5,6 +5,8 @@ public class BankAccount{
     String accountLastName;
     String maleOrfemale;
     int age;
+    String password;
+    int passwordHash;
     String passwordHashed;
     int passwordHash;
     Boolean isCompanyAccount;
@@ -13,6 +15,7 @@ public class BankAccount{
 
     public static void createAccount(){
         Scanner collectUserAccountInfo = new Scanner(System.in);
+        Random hashGenorator = new Random();
         System.out.print("Enter First Name:");
         this.accountFirstName = collectUserAccountInfo.nextLine();
         System.out.print("Enter Last Name:");
@@ -26,5 +29,9 @@ public class BankAccount{
         if (genderChar.equals('f')){
             this.maleOrfemale = "Female";
         }
+        System.out.print("Enter Your Age:");
+        this.age = collectUserAccountInfo.nextInt();
+        System.out.print("Make a password:");
     }
+    public static void createAccountStoryMood(String accountFirstName,String accountLastName,String maleOrfemale,int age,String amount)
 }
