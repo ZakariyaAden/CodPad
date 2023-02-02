@@ -7,6 +7,7 @@ public class BankAccount{
     int age;
     String password;
     int passwordHash;
+    String passwordSalt;
     String passwordHashed;
     int passwordHash;
     Boolean isCompanyAccount;
@@ -32,6 +33,18 @@ public class BankAccount{
         System.out.print("Enter Your Age:");
         this.age = collectUserAccountInfo.nextInt();
         System.out.print("Make a password:");
+        this.password = collectUserAccountInfo.nextLine();
+        int hash = hashGenorator.nextInt(100);
+        this.passwordHash = hash;
+        int shift = hash % 26;
+        String[] passwordArr = new String[this.password.length()]; 
+        for (int i = 0; i < this.password.length();i++){
+            passwordArr[i] = this.password.charAt(i);
+        }
+        while(!endbool){
+            int randomIndex = hashGenorator.nextInt(this.password.length() - 1);
+        }
+
     }
     public static void createAccountStoryMood(String accountFirstName,String accountLastName,String maleOrfemale,int age,String amount)
 }
