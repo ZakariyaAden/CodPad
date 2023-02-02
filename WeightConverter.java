@@ -34,7 +34,6 @@ public class WeightConverter {
         }
         if (convrTypeP == false && convrTypeK == false) {
             System.out.println("Incorrect Input");
-
         }
     }
 
