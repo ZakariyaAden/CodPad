@@ -18,11 +18,27 @@ public class WeightConverter {
         }
         if (convrTypeP) {
             System.out.println("\nPounds to Kilograms");
+            Scanner farToCelraw = new Scanner(System.in);
+            System.out.print("Input Weight in Pounds:");
+            int farToConvr = farToCelraw.nextInt();
+            int farConvrFinal = farenheightConvr(faToConvr);
+            System.out.println(farToConvr + " Fairenheight is " + farConvrFinal + " Celsius");
+        }
+        if (convrTypeP) {
+            System.out.println("\nPounds to Kilograms");
             Scanner raw = new Scanner(System.in);
             System.out.print("Input Weght in Pounds:");
             int poundConvr = raw.nextInt();
             int poundConvrFinal = poundConvr(poundConvr);
             System.out.println(poundConvr + " Pounds is " + poundConvrFinal + " Kilograms");
+        }
+        if (convrTypeK) {
+            System.out.println("\nCelsius to Fairenheight");
+            Scanner farToCelraw = new Scanner(System.in);
+            System.out.print("Input Temp in Celsius:");
+            int celToConvr = farToCelraw.nextInt();
+            int celConvrFinal = celsiusConvr(celToConvr);
+            System.out.println(celToConvr + " Celsius is " + celConvrFinal + " Fairenheight");
         }
         if (convrTypeK) {
             System.out.println("\nKilograms to Pounds");
@@ -34,6 +50,7 @@ public class WeightConverter {
         }
         if (convrTypeP == false && convrTypeK == false) {
             System.out.println("Incorrect Input");
+
         }
     }
 
