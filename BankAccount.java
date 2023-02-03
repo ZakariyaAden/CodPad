@@ -6,15 +6,12 @@ public class BankAccount{
     String maleOrfemale;
     int age;
     String password;
-    int passwordHash;
-    String passwordSalt;
     String passwordHashed;
-    int passwordHash;
     Boolean isCompanyAccount;
     String companyName;
     String amount;
 
-    public static void createAccount(){
+    public static void openAccount(){
         Scanner collectUserAccountInfo = new Scanner(System.in);
         Random hashGenorator = new Random();
         System.out.print("Enter First Name:");
@@ -33,18 +30,42 @@ public class BankAccount{
         System.out.print("Enter Your Age:");
         this.age = collectUserAccountInfo.nextInt();
         System.out.print("Make a password:");
-        this.password = collectUserAccountInfo.nextLine();
-        int hash = hashGenorator.nextInt(100);
-        this.passwordHash = hash;
-        int shift = hash % 26;
+        String tempPassword = collectUserAccountInfo.nextLine();
+        this.password = encryptionStepOne(tempPassword);
+    }
+    public static void openAccountStoryMood(String accountFirstName,String accountLastName,String maleOrfemale,int age,String amount)
+    
+    public static String encryptionStepOne(String paraStr) {
+        char[] arrForReverser = new char[paraStr.length()];
+        int strIndex = 0;
+        for (int i = paraStr.length() - 1; i >= 0; i--) {
+            arrForReverser[strIndex] = paraStr.charAt(i);
+            strIndex++;
+        }
+        String letter = "";
+        for (int j = 0; j < paraStr.length(); j++) {
+            letter = letter + arrForReverser[j];
+        }
+        return letter;
+    }
+    public static String encryptionStepTwo(){        
+        int hashLoopCount = 0;
+        int[] hashArr = new int[5];
+        while(hashLoopCount < hashArr.length){
+            int localhash = hashGenorator.nextInt(9);
+            hashArr[hashLoopCount] = localhash;
+        }
         String[] passwordArr = new String[this.password.length()]; 
         for (int i = 0; i < this.password.length();i++){
-            passwordArr[i] = this.password.charAt(i);
+            passwordArr[i] = "" + this.password.charAt(i);
+            if (passwordArr[i] == " "){
+                int randNum = hashGenorator.nextInt(9);
+                passwordArr[i] = "" + randNum;
+            }
         }
-        while(!endbool){
-            int randomIndex = hashGenorator.nextInt(this.password.length() - 1);
-        }
-
+        /*
+        finish later
+        for()
+        */
     }
-    public static void createAccountStoryMood(String accountFirstName,String accountLastName,String maleOrfemale,int age,String amount)
 }
