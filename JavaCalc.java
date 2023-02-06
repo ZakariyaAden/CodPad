@@ -37,29 +37,35 @@ public class JavaCalc{
         while(!endbool){
             System.out.print("Input equation[Ex:1+2]:");
             String equation = numScanner.nextLine();
-            
-            for(char i : operationls) {
-                if (i == operation) {
-                    if (i == '+') {
-                        awsr = add(num1,num2);
-                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);
-                    } 
-                    if (i == '-') {
-                        awsr = sub(num1,num2);
-                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);                    
-                    }
-                    if (i == '*') {
-                        awsr = mult(num1,num2);
-                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);
-
-                    }
-                    if (i == '/') {
-                        awsr = div(num1,num2);
-                        System.out.println("\n" + num1 + " " + operation + " " + num2 + " = " + awsr);   
-                    }
+            char[] equationArr = new char[equation.length()];
+            for(int i = 0; i < equation.length(); i++){
+                equationArr[i] = equationArr.charAt(i);
+            }
+            int num1 = 0;
+            int num2 = 0;
+            for (int j = 0; j < equation.length(); j++){
+                switch(equationArr[j]){
+                    case '1':
+                        num1 = 1;
+                        if (j > 0){
+                            break;
+                        }
+                        break;
+                    case '2':
+                        num1 = 2;
+                        if (j > 0){
+                            break;
+                        }
+                        break;
+                    case '3':
+                        num1 = 1;
+                        if (j > 0){
+                            break;
+                        }
+                        break;
                 }
             }
-
+            
         }
     }
 }
