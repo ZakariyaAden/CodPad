@@ -36,3 +36,4 @@ public class ExpGUI implements ActionListener{
         label.setText("Number of clicks: " + numOfClicks);
     }
 }
+>>>>>>> 6a2b5800fd692ff860cc9581c5fd43701351d5fc
