@@ -10,11 +10,12 @@ public class WordCounter{
     }
     public static int counter(String paraMsg){
         int length = 1;
-        for(int i = 0; i < arr.length;i++){
+        for(int i = 0; i < paraMsg.length();i++){
             if(paraMsg.charAt(i) == ' '){
                 length++;
             }
         }
+        length = length - 1; 
         return length;
     }
 }
