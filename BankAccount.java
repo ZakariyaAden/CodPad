@@ -6,10 +6,8 @@ public class BankAccount{
     String maleOrfemale;
     int age;
     String password;
-    String passwordHashed;
-    Boolean isCompanyAccount;
-    String companyName;
-    String amount;
+    int hash;
+    Double amount;
 
     public static void openAccount(){
         Scanner collectUserAccountInfo = new Scanner(System.in);
@@ -31,10 +29,38 @@ public class BankAccount{
         this.age = collectUserAccountInfo.nextInt();
         System.out.print("Make a password:");
         String tempPassword = collectUserAccountInfo.nextLine();
-        this.password = encryptionStepOne(tempPassword);
+        int hash = hashGenorator.nextInt(9999);
+        this.password = encryptionStepOne(encryptionStepTwo(tempPassword,hash));
+        this.hash = hash;
+        System.out.println("How Much Would You Like To Deposit:");
+        Double amount = collectUserAccountInfo.nextDouble();
+        this.amount = amount;
     }
-    public static void openAccountStoryMood(String accountFirstName,String accountLastName,String maleOrfemale,int age,String amount)
-    
+    public static void openAccountStoryMood(String accountFirstName,String accountLastName,Boolean maleOrfemale,int age, String password, Double amount){
+        this.accountFirstName = accountFirstName;
+        this.accountLastName = accountLastName;
+        if (maleOrfemale){
+            this.maleOrfemale = "Male";
+        }
+        if (!maleOrfemale){
+            this.maleOrfemale = "Female";
+        }
+        this.age = age;
+        Random hashGenoratorForStoryMood = new Random();
+        int hashForStoryMood = hashGenoratorForStoryMood.nextInt(9999) 
+        this.password = encryptionStepOne(encryptionStepTwo(password,hashForStoryMood));
+        this.hash = hashForStoryMood;
+        this.amount = amount;
+    }
+    public static void closeAccount(){
+        String accountFirstName = null;
+        String accountLastName = null;
+        String maleOrfemale = null;
+        int age = null;
+        String password = null;
+        int hash = null;
+        Double amount = null;
+    }
     public static String encryptionStepOne(String paraStr) {
         char[] arrForReverser = new char[paraStr.length()];
         int strIndex = 0;
@@ -48,24 +74,19 @@ public class BankAccount{
         }
         return letter;
     }
-    public static String encryptionStepTwo(){        
-        int hashLoopCount = 0;
-        int[] hashArr = new int[5];
-        while(hashLoopCount < hashArr.length){
-            int localhash = hashGenorator.nextInt(9);
-            hashArr[hashLoopCount] = localhash;
-        }
-        String[] passwordArr = new String[this.password.length()]; 
-        for (int i = 0; i < this.password.length();i++){
-            passwordArr[i] = "" + this.password.charAt(i);
-            if (passwordArr[i] == " "){
-                int randNum = hashGenorator.nextInt(9);
-                passwordArr[i] = "" + randNum;
+    public static String encryptionStepTwo(String plainText,int shift){        
+        StringBuilder encryptedText = new StringBuilder();
+        int length = plainText.length();
+        for (int i = 0; i < length; i++) {
+            char c = plainText.charAt(i);
+            if (Character.isUpperCase(c)) {
+                encryptedText.append((char) ((c + shift - 65) % 26 + 65));
+            } else if (Character.isLowerCase(c)) {
+                encryptedText.append((char) ((c + shift - 97) % 26 + 97));
+            } else {
+                encryptedText.append(c);
             }
         }
-        /*
-        finish later
-        for()
-        */
+        return encryptedText.toString();        
     }
 }
