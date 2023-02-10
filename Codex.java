@@ -1,3 +1,5 @@
+//Codex v1 // Full Release // Quadratic Hash Generation
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -8,6 +10,9 @@ public class Codex {
         System.out.println("Input Message to be Encrypted:");
         String rawMsg = msgScanner.nextLine();
         EncryptionKey info = new EncryptionKey(rawMsg,coinFlip());
+        System.out.println("Encrypted Message: "encryptStepTwo(encrypt(info)));
+        System.out.println("Encryption Hash: " + info.hash);
+        System.out.println("break my encryption, I dare you")
     }
     public static int coinFlip(){
         Random coinFlipRand = new Random();
@@ -41,5 +46,18 @@ public class Codex {
             }
         }
         return encryptedText.toString();
+    }
+    public static String encryptStepTwo(String paraStr) {
+        char[] arrForReverser = new char[paraStr.length()];
+        int strIndex = 0;
+        for (int i = paraStr.length() - 1; i >= 0; i--) {
+            arrForReverser[strIndex] = paraStr.charAt(i);
+            strIndex++;
+        }
+        String letter = "";
+        for (int j = 0; j < paraStr.length(); j++) {
+            letter = letter + arrForReverser[j];
+        }
+        return letter;
     }
 }
