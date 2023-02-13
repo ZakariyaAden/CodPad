@@ -42,12 +42,10 @@ public class TickTackToe{
             }            
             System.out.println("\n\nOk " + p1.name + ", You're up First\n\n");
             boolean endbool = false;
-            int turnCounter = 1;    
-            int turnCounterVisual = turnCounter;
-            int turnCounterBino = turnCounter % 2;                    
+            int turnCounter = 1;                 
             while(!endbool){
                 Scanner moveInput = new Scanner(System.in);
-                if (turnCounterBino == 1 || turnCounterBino == 1){
+                if (turnCounter == 1 || turnCounter == 3 || turnCounter == 5 || turnCounter == 7 || turnCounter == 9){
                     System.out.println("\n\nOk " + p1.name + ", Your Turn:" + turnCounter  + "\n\n");
                     printBoard(boardV1);
                     System.out.println("\n\nWhich Spot do you want to put your " + p1.marker + " on[1~9]:");
@@ -58,13 +56,9 @@ public class TickTackToe{
                     if(whoWon.charAt(0) == p1.marker.charAt(0)){
                         endbool = true;
                     }
-                    System.out.println(ref.jugde(boardV1,p1,p2));
-                    if (loseATurn == true){
-                        turnCounter = turnCounter - 1;
-                        turnCounterVisual = turnCounterVisual - 1;
-                    }                   
+                    System.out.println(ref.jugde(boardV1,p1,p2));     
                 }
-                if (turnCounterBino == 0){
+                if (turnCounter == 2 || turnCounter == 4 || turnCounter == 6 || turnCounter == 8){
                     System.out.println("\n\nOk " + p2.name + ", Your Turn:" + turnCounter + "\n\n");
                     printBoard(boardV1);
                     System.out.println("\n\nWhich Spot do you want to put your " + p2.marker + " on[1~9]:");
@@ -76,12 +70,8 @@ public class TickTackToe{
                         System.out.println(ref.jugde(boardV1,p1,p2));
                         endbool = true;
                     }
-                    if (loseATurn == true){
-                        turnCounter = turnCounter - 1;
-                        turnCounterVisual = turnCounterVisual - 1;
-                    } 
                 }
-                if (turnCounter == 8){
+                if (turnCounter == 9){
                     endbool = true;
                 }
                 turnCounter++;
