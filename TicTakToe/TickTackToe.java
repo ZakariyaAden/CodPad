@@ -15,6 +15,13 @@ public class TickTackToe{
             {"-","+","-","+","-",},
             {" ","|"," ","|"," ",}
         };
+        String[][] boardV2 = {
+            {" ","    /"," ","    /"," "},
+            {"_","   /","_","   /","_"},
+            {" ","  /"," ","  /"," "},
+            {"_"," /","_"," /","_"},
+            {" ","/"," ","/"," "},
+        };
         if (start.equals("E") || start.equals("e")) {
             startBool = true;
         }
@@ -58,7 +65,7 @@ public class TickTackToe{
                     catch(Throwable err){
                         System.out.println("Invalid Input");
                     }
-                    boolean loseATurn = placePiece(boardV1,p1spotNumForGameLoop,p1);
+                    boolean loseATurn = p1.placePiece(boardV1,p1spotNumForGameLoop);
                     printBoard(boardV1);
                     String whoWon = ref.jugde(boardV1,p1,p2,endcount);
                     if(whoWon.charAt(0) !=' '){
@@ -78,7 +85,7 @@ public class TickTackToe{
                     catch(Throwable err){
                         System.out.println("Invalid Input");
                     }
-                    boolean loseATurn = placePiece(boardV1,p2spotNumForGameLoop,p2);
+                    boolean loseATurn = p2.placePiece(boardV1,p2spotNumForGameLoop);
                     printBoard(boardV1);
                     String whoWon = ref.jugde(boardV1,p1,p2,endcount);
                     if(whoWon.charAt(0) != ' '){
@@ -104,129 +111,4 @@ public class TickTackToe{
             System.out.println("");
         }
     }
-
-    //public static String[][] boardVersionManagerForPrinter(int serialNum){
-    //    String[][] boardV1 = {
-    //        {" ","|"," ","|"," "},
-    //        {"-","+","-","+","-"},
-    //        {" ","|"," ","|"," ",},
-    //        {"-","+","-","+","-",},
-    //        {" ","|"," ","|"," ",}
-    //    };
-
-    //    String[][] boardV2 = {
-    //        {"_","/","_","/","_"},
-    //        {"_","/","_","/","_"},
-    //        {" ","/"," ","/"," "},
-    //    };
-
-    //    String[][] currentVersion = new String[10][6];
-
-    //    if (serialNum == 0) {
-    //        currentVersion = boardV1;
-    //    }
-    
-    //    if (serialNum == 1) {
-    //        currentVersion = boardV1;
-    //    }
-    //    return currentVersion;
-    //}
-
-    public static boolean placePiece(String[][] arr, int spotNun, Player player) {
-        boolean occuiped = false;
-        switch(spotNun) {
-            case 1: 
-                if (arr[0][0] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[0][0] = player.marker;
-                break;
-            case 2:   
-                if (arr[0][2] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }                 
-                arr[0][2] = player.marker;
-                break;
-            case 3:
-                if (arr[0][4] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[0][4] = player.marker;
-                break;
-            case 4:
-                if (arr[2][0] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[2][0] = player.marker;
-                break;
-            case 5:
-                if (arr[2][2] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[2][2] = player.marker;
-                break;
-            case 6:
-                if (arr[2][4] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[2][4] = player.marker;
-                break;
-            case 7:
-                if (arr[4][0] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[4][0] = player.marker;
-                break;
-            case 8:
-                if (arr[4][2] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[4][2] = player.marker;
-                break;
-            case 9:
-                if (arr[4][4] != " "){
-                    System.out.println("Can't Place There");
-                    occuiped = true;
-                    break;
-                }
-                arr[4][4] = player.marker;
-                break;
-            default:
-                System.out.println("Invalid Input");
-                break;
-        }
-        
-        System.out.println("\n");
-        int playerIndex = 0;
-        for (int i = 0; i < arr.length; i++){
-            for (int j = 0; j < arr[i].length;j++){
-                if (arr[i][j].equals(player.marker)){
-                    playerIndex = i + j;
-                    int[] playerIndexarr = {
-                        playerIndex
-                    };
-                    
-                    player.placementArr = playerIndexarr;
-                }
-            }
-        }
-        return occuiped;
-    } 
-
 }
