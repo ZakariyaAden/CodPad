@@ -11,9 +11,9 @@ public class TikTacToe{
         String[][] boardV1 = {
             {" ","|"," ","|"," "},
             {"-","+","-","+","-"},
-            {" ","|"," ","|"," ",},
-            {"-","+","-","+","-",},
-            {" ","|"," ","|"," ",}
+            {" ","|"," ","|"," "},
+            {"-","+","-","+","-"},
+            {" ","|"," ","|"," "}
         };
         String[][] boardV2 = {
             {" ","    /"," ","    /"," "},
@@ -62,7 +62,18 @@ public class TikTacToe{
                 }
                 System.out.println("\nYour opponent:");
                 System.out.println("Name: " + ai.getName());
-                System.out.println("Difficulty Level: " + ai.getDiffLevel());
+                System.out.println("Difficulty Level: " + ai.getDiffLevel() + "\n");
+                for(int i = 0; i <= 9; i++){
+                    Scanner moveInput = new Scanner(System.in);
+                    printBoard(boardV1);
+                    System.out.print("place piece:");
+                    p1.placePiece(boardV1,moveInput.nextInt());
+                    boolean[] aiAllPossibleSpots = ai.think(boardV1);
+                    for(int j = 0; j < 9; j++){
+                        System.out.println(aiAllPossibleSpots[j]);
+                    }
+                    System.out.println("\n");
+                }
             }
             if (numOfPLayers == 2){
                 Scanner playerinfo = new Scanner(System.in);
