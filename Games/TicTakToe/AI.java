@@ -12,67 +12,64 @@ public class AI{
     public void setDiffLevel(int diffLevel){
         this.diffLevel = diffLevel;
     }
-    public String getName(){
-        return this.aiName;
-    }
-    public String getMarker(){
-        return this.marker;
+    public String get(String indecator){
+        String returnedStr = "";
+        switch(indecator){
+            case "NAME":
+                returnedStr = this.aiName;
+                break;
+            case "MKR":
+                returnedStr = this.marker;
+                break;
+        }
+        return returnedStr;
     }
     public int getDiffLevel(){
         return this.diffLevel;
     }
+    public int kill(){
+        return 404;
+    }
     public boolean[] think(String[][] arr){
-        boolean freeSpot1 = false;
-        boolean freeSpot2 = false;
-        boolean freeSpot3 = false;
-        boolean freeSpot4 = false;
-        boolean freeSpot5 = false;
-        boolean freeSpot6 = false;
-        boolean freeSpot7 = false;
-        boolean freeSpot8 = false;
-        boolean freeSpot9 = false;
         boolean[] freeSpots = {
-            freeSpot1,freeSpot2,freeSpot3,
-            freeSpot4,freeSpot5,freeSpot6,
-            freeSpot7,freeSpot8,freeSpot9
+            true,true,true,
+            true,true,true,
+            true,true,true
         };
         for(int i = 0; i < arr.length;i++){
             for(int j = 0; j < arr[i].length;j++){
-                if (arr[i][j] == " "){
-                    if(i == 0 && j == 0){
-                        freeSpot1 = true;
-                    }
-                    if(i == 0 && j == 2){
-                        freeSpot2 = true;
-                    }
-                    if(i == 0 && j == 4){
-                        freeSpot3 = true;
-                    }
-                    if(i == 2 && j == 0){
-                        freeSpot4 = true;
-                    }
-                    if(i == 2 && j == 2){
-                        freeSpot5 = true;
-                    }
-                    if(i == 2 && j == 4){
-                        freeSpot6 = true;
-                    }
-                    if(i == 4 && j == 0){
-                        freeSpot7 = true;
-                    }
-                    if(i == 4 && j == 2){
-                        freeSpot8 = true;     
-                    }
-                    if(i == 4 && j == 4){
-                        freeSpot9 = true;
-                    }
+                if(i == 0 && j == 0 && arr[i][j] == " " && arr[i][j] == " "){
+                    freeSpots[0] = false;
+                }
+                if(i == 0 && j == 2 && arr[i][j] == " "){
+                    freeSpots[1] = false;
+                }
+                if(i == 0 && j == 4 && arr[i][j] == " "){
+                    freeSpots[2] = false;
+                }
+                if(i == 2 && j == 0 && arr[i][j] == " "){
+                    freeSpots[3] = false;
+                }
+                if(i == 2 && j == 2 && arr[i][j] == " "){
+                    freeSpots[4] = false;
+                }
+                if(i == 2 && j == 4 && arr[i][j] == " "){
+                    freeSpots[5] = false;
+                }
+                if(i == 4 && j == 0 && arr[i][j] == " "){
+                    freeSpots[6] = false;
+                }
+                if(i == 4 && j == 2 && arr[i][j] == " "){
+                    freeSpots[7] = false;     
+                }
+                if(i == 4 && j == 4 && arr[i][j] == " "){
+                    freeSpots[8] = false;
                 }
             }
         }
 
         return freeSpots;
     }
-    // I'll intergate this later
     // public boolean placePiece(String[][] arr, boolean[] freeSpots, AI paraAI) {
     //     boolean occuiped = false;
     //     switch(spotNum) {

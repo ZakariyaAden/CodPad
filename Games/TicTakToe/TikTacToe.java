@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class TikTacToe{
@@ -9,7 +10,7 @@ public class TikTacToe{
         char start = startMsg.next().charAt(0);
         boolean startBool = false;
         String[][] boardV1 = {
-            {" ","|"," ","|"," "},
+            {" ","|","f","|"," "},
             {"-","+","-","+","-"},
             {" ","|"," ","|"," "},
             {"-","+","-","+","-"},
@@ -61,14 +62,27 @@ public class TikTacToe{
                         break;
                 }
                 System.out.println("\nYour opponent:");
-                System.out.println("Name: " + ai.getName());
+                System.out.println("Name: " + ai.get("NAME"));
                 System.out.println("Difficulty Level: " + ai.getDiffLevel() + "\n");
                 for(int i = 0; i <= 9; i++){
                     Scanner moveInput = new Scanner(System.in);
                     printBoard(boardV1);
                     System.out.print("place piece:");
-                    p1.placePiece(boardV1,moveInput.nextInt());
-                    boolean[] aiAllPossibleSpots = ai.think(boardV1);
+                    int p1spotNum = 1;
+                    try{
+                        //memory leak
+                        //should have solved it
+                        p1spotNum = moveInput.nextInt();
+                        // if(moveInput.nextInt() == ai.kill()){
+                        //     i = ai.kill();
+                        // }
+                    }
+                    catch(Throwable err){
+                        System.out.println("\nInvalid Input");
+                    }
+                    p1.placePiece(boardV1,p1spotNum);
+                    String[][] gameLoopboard = boardV1;
+                    boolean[] aiAllPossibleSpots = ai.think(gameLoopboard);
                     for(int j = 0; j < 9; j++){
                         System.out.println(aiAllPossibleSpots[j]);
                     }
@@ -110,7 +124,7 @@ public class TikTacToe{
                             p1spotNumForGameLoop = moveInput.nextInt();
                         }
                         catch(Throwable err){
-                            System.out.println("Invalid Input");
+                            System.out.println("\nInvalid Input");
                         }
                         boolean loseATurn = p1.placePiece(boardV1,p1spotNumForGameLoop);
                         printBoard(boardV1);
@@ -130,7 +144,7 @@ public class TikTacToe{
                             p2spotNumForGameLoop = moveInput.nextInt();
                         }
                         catch(Throwable err){
-                            System.out.println("Invalid Input");
+                            System.out.println("\nInvalid Input");
                         }
                         boolean loseATurn = p2.placePiece(boardV1,p2spotNumForGameLoop);
                         printBoard(boardV1);

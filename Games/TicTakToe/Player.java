@@ -14,7 +14,6 @@ public class Player {
         }
         return msg;
     }
-    // this saved me a ton of time
     public boolean placePiece(String[][] arr, int spotNun) {
     boolean occuiped = false;
     switch(spotNun) {
