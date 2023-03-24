@@ -8,6 +8,7 @@ public class Player {
         this.marker = "" + name.charAt(0);
     }
     public String champion(){
+        //man i regret losing
         String msg = "";
         if(this.name == "aideed" || this.name == "Aideed"){
             msg = "Welcome back, Champion";

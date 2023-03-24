@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class TikTacToe{
@@ -10,7 +9,7 @@ public class TikTacToe{
         char start = startMsg.next().charAt(0);
         boolean startBool = false;
         String[][] boardV1 = {
-            {" ","|","f","|"," "},
+            {" ","|"," ","|"," "},
             {"-","+","-","+","-"},
             {" ","|"," ","|"," "},
             {"-","+","-","+","-"},
@@ -64,7 +63,7 @@ public class TikTacToe{
                 System.out.println("\nYour opponent:");
                 System.out.println("Name: " + ai.get("NAME"));
                 System.out.println("Difficulty Level: " + ai.getDiffLevel() + "\n");
-                for(int i = 0; i <= 9; i++){
+                for(int endcount = 0; endcount <= 8; endcount++){
                     Scanner moveInput = new Scanner(System.in);
                     printBoard(boardV1);
                     System.out.print("place piece:");
@@ -81,10 +80,17 @@ public class TikTacToe{
                         System.out.println("\nInvalid Input");
                     }
                     p1.placePiece(boardV1,p1spotNum);
-                    String[][] gameLoopboard = boardV1;
-                    boolean[] aiAllPossibleSpots = ai.think(gameLoopboard);
+                    //String[][] gameLoopboard = boardV1;
+                    boolean[] aiAllPossibleSpots = ai.think(boardV1);
+                    
                     for(int j = 0; j < 9; j++){
                         System.out.println(aiAllPossibleSpots[j]);
+                    }
+                    ai.placePiece(boardV1,aiAllPossibleSpots);
+                    String whoWon = ref.jugdeAI(boardV1,p1,ai,endcount);
+                    if(whoWon.charAt(0) !=' '){
+                        System.out.println("\n" + whoWon);
+                        break;
                     }
                     System.out.println("\n");
                 }
