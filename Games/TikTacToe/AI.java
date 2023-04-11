@@ -106,60 +106,88 @@ public class AI{
         for(int opStatus = 0; opStatus <= 8;opStatus++){
             if(!occuiped[opStatus]){
                 int indexConverted = opStatus + 1;
+
                 switch(indexConverted){
                     case 1:
-                        if(arr[0][0] == " "){
-                            arr[0][0] = this.get("MKR");
+                        int[] posArr1 = returnCoordinates(1);
+                        int posX1 = posArr1[0];
+                        int posY1 = posArr1[1];
+                        if(arr[posX1][posY1] == " "){
+                            arr[posX1][posY1] = this.get("MKR");
                             opStatus = 10000;
                         }
                         break;
                     case 2:
-                        if(arr[0][2] == " "){
-                            arr[0][2] = this.get("MKR");
+                        int[] posArr2 = returnCoordinates(2);
+                        int posX2 = posArr2[0];
+                        int posY2 = posArr2[1];
+                        if(arr[posX2][posY2] == " "){
+                            arr[posX2][posY2] = this.get("MKR");
                             opStatus = 10000;
-                        }
+                        }                    
                         break;
                     case 3:
-                        if(arr[0][4] == " "){
-                            arr[0][4] = this.get("MKR");
+                        int[] posArr3 = returnCoordinates(3);
+                        int posX3 = posArr3[0];
+                        int posY3 = posArr3[1];
+                        if(arr[posX3][posY3] == " "){
+                            arr[posX3][posY3] = this.get("MKR");
                             opStatus = 10000;
-                        }
+                        }                    
                         break;
                     case 4:
-                        if(arr[2][0] == " "){
-                            arr[2][0] = this.get("MKR");
+                        int[] posArr4 = returnCoordinates(4);
+                        int posX4 = posArr4[0];
+                        int posY4 = posArr4[1];
+                        if(arr[posX4][posY4] == " "){
+                            arr[posX4][posY4] = this.get("MKR");
                             opStatus = 10000;
-                        }
+                        }                    
                         break;
                     case 5:
-                        if(arr[2][2] == " "){
-                            arr[2][2] = this.get("MKR");
+                        int[] posArr5 = returnCoordinates(5);
+                        int posX5 = posArr5[0];
+                        int posY5 = posArr5[1];
+                        if(arr[posX5][posY5] == " "){
+                            arr[posX5][posY5] = this.get("MKR");
                             opStatus = 10000;
-                        }
+                        }    
                         break;
                     case 6:
-                        if(arr[2][4] == " "){
-                            arr[2][4] = this.get("MKR");
+                        int[] posArr6 = returnCoordinates(6);
+                        int posX6 = posArr6[0];
+                        int posY6 = posArr6[1];
+                        if(arr[posX6][posY6] == " "){
+                            arr[posX6][posY6] = this.get("MKR");
                             opStatus = 10000;
-                        }
+                        }    
                         break;
                     case 7:
-                        if(arr[4][0] == " "){    
-                            arr[4][0] = this.get("MKR");
+                        int[] posArr7 = returnCoordinates(7);
+                        int posX7 = posArr7[0];
+                        int posY7 = posArr7[1];
+                        if(arr[posX7][posY7] == " "){
+                            arr[posX7][posY7] = this.get("MKR");
                             opStatus = 10000;
-                        }
+                        }    
                         break;
                     case 8:
-                        if(arr[4][2] == " "){
-                            arr[4][2] = this.get("MKR");
+                        int[] posArr8 = returnCoordinates(8);
+                        int posX8 = posArr8[0];
+                        int posY8 = posArr8[1];
+                        if(arr[posX8][posY8] == " "){
+                            arr[posX8][posY8] = this.get("MKR");
                             opStatus = 10000;
                         }    
                         break;
                     case 9:
-                        if(arr[4][4] == " "){
-                            arr[4][4] = this.get("MKR");
+                        int[] posArr9 = returnCoordinates(9);
+                        int posX9 = posArr9[0];
+                        int posY9 = posArr9[1];
+                        if(arr[posX9][posY9] == " "){
+                            arr[posX9][posY9] = this.get("MKR");
                             opStatus = 10000;
-                        }
+                        }    
                         break;
                 }
             }
@@ -180,5 +208,14 @@ public class AI{
         //     }
         // }
         return false;
+    }
+    public int[] returnCoordinates(int x){                
+        x = x - 1;
+        int[][] posArr = {
+            {0,0},{0,2},{0,4},
+            {2,0},{2,2},{2,4},
+            {4,0},{4,2},{4,4},
+        };
+        return posArr[x];
     }
 }

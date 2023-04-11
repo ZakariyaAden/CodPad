@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class TikTacToe{
     public static void main(String[] args) {
-        Referee ref = new Referee();
         System.out.println("TickTackToe\n");
+        Referee ref = new Referee();
         Scanner startMsg = new Scanner(System.in);
         System.out.println("Press E to Start:");
         char start = startMsg.next().charAt(0);
@@ -63,13 +63,10 @@ public class TikTacToe{
                 System.out.println("\nYour opponent:");
                 System.out.println("Name: " + ai.get("NAME"));
                 System.out.println("Difficulty Level: " + ai.getDiffLevel() + "\n");
-                for(int endcount = 0; endcount <= 8; endcount++){
+                for(int endcount = 0; endcount <= 4; endcount++){
                     Scanner moveInput = new Scanner(System.in);
                     printBoard(boardV1);
                     boolean[] aiAllPossibleSpots = ai.think(boardV1);
-                    for(int j = 0; j < 9; j++){
-                        System.out.println(aiAllPossibleSpots[j]);
-                    }
                     ai.placePiece(boardV1,aiAllPossibleSpots);
                     printBoard(boardV1);
                     System.out.print("place piece:");
@@ -94,6 +91,9 @@ public class TikTacToe{
                         break;
                     }
                     System.out.println("\n");
+                    if(!scanBoard(boardV1)){
+                        break;
+                    }
                 }
             }
             if (numOfPLayers == 2){
@@ -175,12 +175,22 @@ public class TikTacToe{
         }
     }
     public static void printBoard(String[][] board) {
-
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 System.out.print(board[i][j]);
             }
             System.out.println("");
         }
+    }
+    public static boolean scanBoard(String[][] board){        
+        boolean strNotFound = true;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if(board[i][j] == " "){
+                    strNotFound = false;
+                }
+            }
+        }
+        return strNotFound;
     }
 }
