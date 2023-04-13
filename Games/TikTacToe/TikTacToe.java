@@ -64,9 +64,17 @@ public class TikTacToe{
                 System.out.println("Name: " + ai.get("NAME"));
                 System.out.println("Difficulty Level: " + ai.getDiffLevel() + "\n");
                 for(int endcount = 0; endcount <= 4; endcount++){
+                    if(scanBoard(boardV1)){
+                        System.out.println("CAT");
+                        endcount = 123;
+                    }
                     Scanner moveInput = new Scanner(System.in);
-                    printBoard(boardV1);
+                    String whoWon = ref.jugdeAI(boardV1,p1,ai,endcount);
                     boolean[] aiAllPossibleSpots = ai.think(boardV1);
+                    if(scanBoard(boardV1)){
+                        System.out.println("CAT");
+                        endcount = 123;
+                    }
                     ai.placePiece(boardV1,aiAllPossibleSpots);
                     printBoard(boardV1);
                     System.out.print("place piece:");
@@ -83,7 +91,6 @@ public class TikTacToe{
                         System.out.println("\nInvalid Input");
                     }
                     p1.placePiece(boardV1,p1spotNum);
-                    String whoWon = ref.jugdeAI(boardV1,p1,ai,endcount);
                     if(whoWon.charAt(0) !=' '){
                         System.out.println("\n");
                         printBoard(boardV1);
@@ -91,8 +98,9 @@ public class TikTacToe{
                         break;
                     }
                     System.out.println("\n");
-                    if(!scanBoard(boardV1)){
-                        break;
+                    if(scanBoard(boardV1)){
+                        System.out.println("CAT");
+                        endcount = 123;
                     }
                 }
             }

@@ -6,6 +6,7 @@ public class Referee{
         String p1HasWon = "\n" + p1.name + " has won!";
         String p2HasWon = "\n" + p2.name + " has won!";
         String whoWon = " ";
+        //i really shoud refactor this 
         for (int i = 0; i < paraBoard.length; i++){
             if (paraBoard[i][0] == p1.marker && paraBoard[i][2] == p1.marker && paraBoard[i][4] == p1.marker){
                 whoWon = p1HasWon;

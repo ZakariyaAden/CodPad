@@ -19,6 +19,7 @@ public class Player {
     }
     public boolean placePiece(String[][] arr, int spotNun) {
     boolean occuiped = false;
+    //i also should refactor this too
     switch(spotNun) {
         case 1: 
             if (arr[0][0] != " "){

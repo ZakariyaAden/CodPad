@@ -102,7 +102,9 @@ public class AI{
         //     }
         // }
 
-        //refactor 
+
+        //i might put the strat method here
+
         for(int opStatus = 0; opStatus <= 8;opStatus++){
             if(!occuiped[opStatus]){
                 int indexConverted = opStatus + 1;
